@@ -34,7 +34,7 @@ function Header() {
         <nav aria-label="Global">
           <ul className="flex items-center gap-6 text-sm">
             {links.map((link)=> (
-              <li  > <Link href={link.href} key={link.id} className={pathname === link.href ?"active font-bold" :"text-gray-500 text-lg transition hover:text-gray-500/75"}>{link.name}</Link></li>
+              <li key={link.id}  > <Link href={link.href}  className={pathname === link.href ?"active font-bold" :"text-gray-500 text-lg transition hover:text-gray-500/75"}>{link.name}</Link></li>
             ))}
           </ul>
         </nav>

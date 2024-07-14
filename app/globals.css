@@ -3,11 +3,18 @@
 @tailwind utilities;
 
 body{
-    background: #000;
+    background:white ;
 }
 header {
     background: #ffffff;
 }
 .active {
     @apply text-lg text-black transition hover:text-gray-500/75
+}
+
+.padd {
+    @apply w-[95%] m-auto md:w-[90%] py-4 px-2 
+}
+.products {
+    @apply rounded-lg border-gray-300 border-[1px] transform -translate-y-[150px] lg:-translate-y-[300px]
 }
