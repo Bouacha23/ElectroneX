@@ -13,6 +13,12 @@ export interface products {
 
 export interface ButtonProps  {
     lable : string ;
-    onClick : () => void;
+    onClick ?: () => void;
     style ?:string
+}
+
+export interface FormInput {
+    style ?: string ,
+    placeholder : string ,
+    type : string
 }
