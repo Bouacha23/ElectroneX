@@ -1,25 +1,10 @@
 
-
-import { fetchProdcutList } from "@/app/lib/data"
-import { useState ,useEffect} from "react"
 import Image from "next/image"
 import  Button from "@/app/ui/button"
 import { FaStar } from "react-icons/fa"
 
 
- function ListProduct () {
-
-
-  const [productList , setProductList] = useState([])
-  useEffect( ()=>{
-    const listData = async ()=> {
-          const reponce = await fetchProdcutList()
-          setProductList(reponce?.data)
-          console.log(reponce.data)
-    }
-    listData()
-  },[])
-
+ function ListProduct ({productList}) {
 
   return (
     <div className=" col-span-3 pt-8 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3  lg:gap-8"> 
