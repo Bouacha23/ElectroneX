@@ -22,3 +22,7 @@ export interface FormInput {
     placeholder : string ,
     type : string
 }
+
+export type detilse =   {
+    id : string
+}

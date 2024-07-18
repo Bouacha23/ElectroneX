@@ -7,7 +7,6 @@ import ListProduct from "./listProduct"
 import Search from "./search"
 
 function Products() {
-
   const [productList , setProductList] = useState([])
   useEffect( ()=>{
     const listData = async ()=> {

@@ -11,3 +11,14 @@ export async function fetchProdcutList():Promise<any>{
         throw new Error (" product list Error ")
     }
 }
+
+
+export async function  fetchBrodcutDetails(id : string):Promise<any> {
+  try {
+    const reponce  = await appApi.get(`/products/${id}?populate=*`)
+    return reponce.data
+  } catch (error) {
+    throw new Error (" product details  list Error ")
+  }
+}
+
