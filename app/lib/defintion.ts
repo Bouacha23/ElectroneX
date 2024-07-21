@@ -26,3 +26,9 @@ export interface FormInput {
 export type detilse =   {
     id : string
 }
+export type details =  {
+  id : number,
+  attributes : object
+}
+
+export  type recomandationtype = {list : object[] , label : string}
