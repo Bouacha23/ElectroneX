@@ -31,4 +31,4 @@ export type details =  {
   attributes : object
 }
 
-export  type recomandationtype = {list : object[] , label : string}
+export  type recomandationtype = {list : object[]  , label : string}

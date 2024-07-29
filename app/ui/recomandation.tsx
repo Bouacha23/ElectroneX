@@ -5,6 +5,7 @@ import Button from "./button"
 
 
 function Recomandation({list , label} : recomandationtype) {
+  
   return (
         <div>
             <h1> {label}</h1>

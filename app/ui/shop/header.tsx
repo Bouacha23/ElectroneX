@@ -3,11 +3,16 @@ import Link from "next/link"
 import {shopLink} from "@/app/lib/defintion"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-
+import { UserButton, useUser } from "@clerk/nextjs";
+import { FaShoppingBag } from "react-icons/fa"
+import CartHead from "../CartHead"
+import { use, useContext } from "react"
+import { ElectronContext } from "@/app/(Context)/context"
  
 function Header() {
 
-
+  const {user} = useUser()
+  const {cartState  , setCartState} =useContext(ElectronContext)
   const pathname = usePathname()
  
   const links:shopLink[] = [
@@ -40,25 +45,35 @@ function Header() {
         </nav>
       </div>
 
-      <div className="flex items-center gap-4">
-        <div className="sm:flex sm:gap-4">
-          <a
-            className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white shadow"
-            href="#"
-          >
-            Login
-          </a>
+      <div className="flex items-center gap-4 relative">
+         {user ?
+            <> 
+              <div className="pl-12 relative"> 
+                <span className={false ? " absolute top-0 -right-[3px] w-[10px] h-[10px] bg-red-600 rounded-full" : "hidden" }></span>
+                <FaShoppingBag onClick={()=> {setCartState(true)}} className=" cursor-pointer" size={20} color="gray"/>
+              </div>
+              <UserButton /> 
+              {cartState ? <CartHead/> : null }
+            </> 
+            :
+            <div className="sm:flex sm:gap-4">
+              <a
+                className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white shadow hover:text-black hover:bg-white hover:border-primary border-2"
+                href="/sign-in"
+              >
+                sign-in
+              </a>
 
-          <div className="hidden sm:flex">
-            <a
-              className="rounded-md bg-black px-5 py-2.5 text-sm font-medium text-teal-600"
-              href="#"
-            >
-              Register
-            </a>
+              <div className="hidden sm:flex">
+                <a
+                  className="rounded-md bg-gray-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:text-black hover:bg-white hover:border-primary border-2"
+                  href="sign-up"
+                >
+                  Register
+                </a>
+              </div>
           </div>
-        </div>
-
+        }
         <div className="block md:hidden">
           <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
             <svg

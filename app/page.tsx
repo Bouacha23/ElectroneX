@@ -9,7 +9,7 @@ export default function Shop() {
       <section  id="shop" className='pt-[70px] w-full  z-10 '>
         <Hero/>
         <div className=' w-full md:w-[90%]  bg-white  md:m-auto ' >
-          <div className=' bg-white p-2  w-full rounded-lg  transform -translate-y-[120px] md:-translate-y-[150px] lg:-translate-y-[300px] lg:p-8 py-2 '>
+          <div className=' bg-white p-2  w-full rounded-lg  transform -translate-y-[120px] md:-translate-y-[150px] lg:-translate-y-[200px] lg:p-8 py-2 '>
           <Products/>
           <Notifcation />
           </div>
