@@ -8,18 +8,22 @@ import { FaShoppingBag } from "react-icons/fa"
 import CartHead from "../CartHead"
 import { use, useContext } from "react"
 import { ElectronContext } from "@/app/(Context)/context"
+import { useRouter } from "next/navigation"
  
 function Header() {
 
   const {user} = useUser()
-  const {cartState  , setCartState} =useContext(ElectronContext)
+  const {cartState  , setCartState } =useContext(ElectronContext)
   const pathname = usePathname()
- 
+  const roter = useRouter()
   const links:shopLink[] = [
     {id : 1  , name :"About", href : "/About"},
     {id : 2 , name : "Shop" , href : "/"},
     {id : 3 , name : "Blog" , href : "/Blog"},
   ]
+
+
+
 
 
   return (
@@ -29,7 +33,7 @@ function Header() {
       <div className="md:flex md:items-center md:gap-2">
         <a className="block text-teal-600" href="#">
           <span className="sr-only">Home</span>
-          <Image src= "/logo.svg" alt="
+          <Image onClick ={()=> roter.push("/")} src= "/logo.svg" alt="
           ElectronLogo" width={40} height={40}/>
         </a>
         <div className="hidden md:block">ElectroneX</div>
@@ -53,7 +57,7 @@ function Header() {
                 <FaShoppingBag onClick={()=> {setCartState(true)}} className=" cursor-pointer" size={20} color="gray"/>
               </div>
               <UserButton /> 
-              {cartState ? <CartHead/> : null }
+              {cartState ? <CartHead /> : null }
             </> 
             :
             <div className="sm:flex sm:gap-4">

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 import {fetchBrodcutDetails} from "@/app/lib/data"
 import Recomandation from "@/app/ui/recomandation"
 import {fetchproductWhiteCatergory} from "@/app/lib/data"
-
+import  CartNotfication  from "@/app/ui/notifcation"
  
 export default function Page () {
   // constant section 
@@ -52,6 +52,7 @@ export default function Page () {
      </div>
      <DetailProduct  product = {Details }/>
      <Recomandation label="Explore our recomendations" list={categoryList}/>
+     < CartNotfication label= " one product add to cart " /> 
 </div>
     )
 }

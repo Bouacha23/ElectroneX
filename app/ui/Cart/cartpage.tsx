@@ -12,27 +12,20 @@ function Cartpage() {
     const user = useUser()
     const [totale , setTotal] = useState(0)
     
-    useEffect( ()=> 
-        {   const   DataCart  = async () => {
-            const reponce = await fetchCart(user.user?.primaryEmailAddress?.emailAddress) 
-            console.log(`reponce ${reponce.data} `)
-            reponce.data.forEach( (item : any ) => {
-                setCart(
-                  [ ...cart , 
-                    {
-                        id : item?.id ,
-                        product : item?.attributes.products.data[0]
-                    }
-                  ]
-                 )
-                
-            })
-        
-           
-        }
+      const   DataCart  = async () => {
+        const responce = await fetchCart(user.user?.primaryEmailAddress?.emailAddress) 
+        console.log(`reponce ${responce.data} `)
+        setCart(
+           responce.data.map((item :any) => ({
+                id: item?.id,
+                product: item?.attributes.products.data[0],
+            })),
+        );
+    }
+    useEffect( ()=> {
             DataCart()
            
-        } , [user.user])
+        } , [user.user?.primaryEmailAddress?.emailAddress])
 
     const handelTotal = () => {
         let total = 0 ;
