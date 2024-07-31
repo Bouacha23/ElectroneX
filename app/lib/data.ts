@@ -51,3 +51,13 @@ export async function fetchCart (email) {
 }
 
 
+export async function delateCart (id : string ) {
+  try {
+    const response = await appApi.delete(`/carts/${id}`);
+    return response.data
+  } catch (error) {
+    console.error('Error Delete  cart data:', error);
+  }
+}
+
+

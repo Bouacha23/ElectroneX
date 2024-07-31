@@ -5,14 +5,18 @@ import { useUser } from "@clerk/nextjs"
 import { Carlito } from "next/font/google"
 import { Suspense } from "react"
 import {CartPageSekeleton} from "@/app/ui/skeletons"
-
+import {delateCart} from "@/app/lib/data"
 
 function Cartpage() {
+
+    // constaine section 
     const {cart , setCart }= useContext(ElectronContext)
     const user = useUser()
     const [totale , setTotal] = useState(0)
+
     
-      const   DataCart  = async () => {
+    // function section 
+    const   DataCart  = async () => {
         const responce = await fetchCart(user.user?.primaryEmailAddress?.emailAddress) 
         console.log(`reponce ${responce.data} `)
         setCart(
@@ -22,11 +26,19 @@ function Cartpage() {
             })),
         );
     }
+
+    const handelDeleteCart = (id : string ) => {
+        delateCart(id);
+        DataCart()
+    }
+
+    // fetching Carts products for specefice user 
     useEffect( ()=> {
             DataCart()
            
-        } , [user.user?.primaryEmailAddress?.emailAddress])
+        } , [user.user?.primaryEmailAddress?.emailAddress ])
 
+    // calcute total for cart products
     const handelTotal = () => {
         let total = 0 ;
         for ( const item of cart ){
@@ -38,7 +50,7 @@ function Cartpage() {
 
     let resulte = handelTotal()
     
-   console.log(cart)
+    console.log(cart)
     
 
   return (
@@ -76,7 +88,7 @@ function Cartpage() {
         
                             <div className="flex flex-1 items-center justify-end gap-2">
                         
-                            <button className="text-gray-600 transition hover:text-red-600">
+                            <button className="text-gray-600 transition hover:text-red-600" onClick={()=> handelDeleteCart(item.id)}>
                                 <span className="sr-only">Remove item</span>
                                 <svg
                                 xmlns="http://www.w3.org/2000/svg"

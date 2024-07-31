@@ -4,14 +4,16 @@ import { useParams } from 'next/navigation'
 import Search from "@/app/ui/shop/search"
 import {details} from "@/app/lib/defintion"
 import DetailProduct from "@/app/ui/details/detailsproduct"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import {fetchBrodcutDetails} from "@/app/lib/data"
 import Recomandation from "@/app/ui/recomandation"
 import {fetchproductWhiteCatergory} from "@/app/lib/data"
 import  CartNotfication  from "@/app/ui/notifcation"
+import { ElectronContext } from '@/app/(Context)/context'
  
 export default function Page () {
   // constant section 
+  const {notDetails } = useContext(ElectronContext)
   const params = useParams()
   const [Details , setDetails] = useState<details | undefined>();
   const [categoryList , setCategory] = useState< object[]>([])
@@ -52,7 +54,7 @@ export default function Page () {
      </div>
      <DetailProduct  product = {Details }/>
      <Recomandation label="Explore our recomendations" list={categoryList}/>
-     < CartNotfication label= " one product add to cart " /> 
+     {notDetails ? < CartNotfication label= " one product add to cart " /> : null }
 </div>
     )
 }

@@ -9,7 +9,7 @@ import {ElectronContext} from "@/app/(Context)/context"
 import { useRouter } from "next/navigation"
 
 function DetailProduct ({product}:{product: details}) {
-  const {cart , setCart } = useContext(ElectronContext)
+  const {cart , setCart , setNotDetails } = useContext(ElectronContext)
   const redirct = useRouter()
   const {user} = useUser()
   const handelPostData =  async ()=>{
@@ -30,8 +30,15 @@ function DetailProduct ({product}:{product: details}) {
         product
       }
     ])
+    handelNotifcation()
     
   }
+
+  const handelNotifcation = ()=> {
+      setNotDetails(true)
+      setTimeout(()=> {setNotDetails(false)} , 2000)
+  }
+  
   
   
 
