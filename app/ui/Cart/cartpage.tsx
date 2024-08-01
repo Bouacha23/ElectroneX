@@ -6,10 +6,12 @@ import { Carlito } from "next/font/google"
 import { Suspense } from "react"
 import {CartPageSekeleton} from "@/app/ui/skeletons"
 import {delateCart} from "@/app/lib/data"
+import { useRouter } from "next/navigation"
 
 function Cartpage() {
 
     // constaine section 
+    const root = useRouter()
     const {cart , setCart }= useContext(ElectronContext)
     const user = useUser()
     const [totale , setTotal] = useState(0)
@@ -125,7 +127,7 @@ function Cartpage() {
 
                     <div className="flex justify-end">
                     <a
-                        href="#"
+                        onClick={()=> root.push("/chekout") }
                         className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
                     >
                         Checkout
