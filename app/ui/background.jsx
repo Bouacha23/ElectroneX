@@ -1,9 +1,10 @@
 
 
-function Background() {
+function Background({url}) {
   return (
-    
-      <img src="/images/hero.jpg" alt="hero Img" className=" fixed  w-full h-[80%] top-0 left-0  bg-primary  object-cover -z-50" />
+      
+          <img src={url}alt="hero Img" className=" fixed -z-50 w-full h-full object-cover"  />
+      
    
   )
 }

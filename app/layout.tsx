@@ -30,7 +30,6 @@ export default function RootLayout({
       <html lang="en">
         <body className={robots.className } >
           <Header/>
-          <Background/>
           {children}
           <Footer/>
           </body>
