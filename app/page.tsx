@@ -3,7 +3,11 @@ import Hero from '@/app/ui/shop/hero'
 import Products from "@/app/ui/shop/products"
 import Notifcation from './ui/shop/notifcation';
 import Background from './ui/background';
+
+
+
 export default function Shop() {
+  
   return (
     <>
       <Background url="../images/hero.jpg" />
@@ -16,6 +20,7 @@ export default function Shop() {
           </div>
         </div>
       </section>
+     
     </>
   );
 }

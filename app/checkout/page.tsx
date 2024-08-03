@@ -35,14 +35,16 @@ export default function Page() {
 
   return (
     <>
-    <Background label="../images/checkout.jpg"  />
-    <div className="p-2 md:p-0 rounded-xl  min-h-[300px] padd  bg-black">
-      <Hero lable="chechout" style="lg:text-[370px] " />
-      {clientSecret && (
+    <Background url="../images/chackout.jpg" />
+    <div className="p-2 md:p-0 rounded-xl  min-h-[300px] padd  ">
+    <Hero lable="check" style="text-[350px] transofrm md:translate-y-[140px]"  />
+     <div  className="bg-white min-h-[400px] rounded-xl" >
+     {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
           <CheckoutForm />
         </Elements>
       )}
+     </div>
       
     </div>
     </>

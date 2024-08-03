@@ -22,7 +22,7 @@ function Products() {
   return (
     <section id="products" className=" p-2 md:p-0 rounded-xl  min-h-[400px] padd  bg-white">
         <div className="head pt-4 pb-8 w-full  md:flex md:justify-between ">
-            <h3 className="text-2xl capitalize">give all you need</h3>
+            <h3 className="text-3xl font-bold capitalize">give all you need</h3>
             <Search/>
         </div>
         <div className="grid lg:grid-cols-4 gap-4">

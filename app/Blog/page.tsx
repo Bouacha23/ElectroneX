@@ -1,10 +1,15 @@
-import React from 'react'
-
-const Page : React.FC = ()=> {
+import Background from "../ui/background"
+import Hero from "../ui/shop/hero"
+import AboutPage from "@/app/ui/About/aboutPage"
+function Page() {
   return (
-    <div>
-        shop
-    </div>
+    <>
+    <Background url="../images/about.jpg" />
+    <section  id="BLOG" className='pt-[70px] w-full  z-10 '>
+      <Hero lable="Blog"  />
+      <AboutPage />
+    </section>
+  </>
   )
 }
 
