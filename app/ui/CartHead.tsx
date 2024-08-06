@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { ElectronContext } from "../(Context)/context"
 
+
 function CartHead() {   
   const {  setCartState} = useContext(ElectronContext)
   const handelCart = () => {

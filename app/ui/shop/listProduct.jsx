@@ -45,7 +45,7 @@ import { useRouter } from "next/navigation"
  }
 
   return (
-    <div className=" col-span-3 pt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 px-8 gap-8 sm:px-0 sm:gap-4  "> 
+    <div className=" col-span-3 pt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5  px-8 gap-8 sm:px-0 sm:gap-4  "> 
         {
           productList.map((item) => 
             <article className=" relative rounded-lg border border-2 border-white hover:border-gray-500" key={item.id}>

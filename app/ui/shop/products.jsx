@@ -25,12 +25,11 @@ function Products() {
             <h3 className="text-3xl font-bold capitalize">give all you need</h3>
             <Search/>
         </div>
-        <div className="grid lg:grid-cols-4 gap-4">
-          <div className=" col-span-1">this</div>
+        
         <Suspense fallback={<skeletonProductList/>}  >
           <ListProduct productList={productList} />
         </Suspense>
-        </div>
+
       
     </section>
   )

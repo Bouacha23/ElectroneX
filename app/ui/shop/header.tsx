@@ -19,7 +19,7 @@ function Header() {
   const links:shopLink[] = [
     {id : 1  , name :"About", href : "/About"},
     {id : 2 , name : "Shop" , href : "/"},
-    {id : 3 , name : "Blog" , href : "/Blog"},
+    {id : 3 , name : "Cart" , href : "/cart"},
   ]
 
 

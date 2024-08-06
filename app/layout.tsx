@@ -28,10 +28,13 @@ export default function RootLayout({
     <ClerkProvider>
       <ElectronProvider>
       <html lang="en">
-        <body className={robots.className } >
+        <body   className={robots.className  } >
+          
           <Header/>
           {children}
           <Footer/>
+        
+
           </body>
       </html>
       </ElectronProvider>
